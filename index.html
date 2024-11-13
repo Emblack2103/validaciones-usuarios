@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#" class="view-products">Playeras</a></li>
+            <li><a href="#" class="view-products">Calzado</a></li>
+            <li><a href="#">Ofertas</a></li>
+           
+            <li><a href="#" class="view-datatable" id="dataTableLink">Ver DataTable</a></li>
+        </ul>
+        <div class="account-section">
+            <span class="account-text">CUENTA</span>
+            <button class="icon-button view-cart">
+                <img src="img/carro.png" alt="Carrito de compras">
+            </button>
+            <span class="cart-count">0</span>
+            <button class="icon-button">
+                <img src="img/usuario.png" alt="Usuario">
+            </button>
+            <!-- Menú desplegable -->
+            <div class="menu-container">
+                <button class="icon-button menu-button">
+                    <img src="img/hamburguesa.png" alt="Menú">
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#">Saber más de nosotros</a>
+                    <a href="#">Soporte</a>
+                </div>
+            </div>
+        </div> 
+    </nav>
+
+    <!-- Buscador -->
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Buscador" class="search-bar">
+    </div>
+
+    <!-- Vista de productos -->
+    <div id="product-view" class="product-grid">
+        <div class="product" data-name="Luces blancas" data-price="25">
+            <img src="img/luces.jpg" alt="Luces blancas">
+            <p>Luces blancas</p>
+            <p>$25</p>
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product" data-name="Tenis rosas" data-price="15">
+            <img src="img/tenis.jpg" alt="Tenis rosas">
+            <p>Tenis rosas</p>
+            <p>$15</p>
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product" data-name="Sudadera deportiva" data-price="50">
+            <img src="img/sudadera.jpg" alt="Sudadera deportiva">
+            <p>Sudadera deportiva</p>
+            <p>$50</p>
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product" data-name="Pantalones de vestir" data-price="30">
+            <img src="img/pantalon.jpg" alt="Pantalones de vestir">
+            <p>Pantalones de vestir</p>
+            <p>$30</p>
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product" data-name="Reloj inteligente" data-price="100">
+            <img src="img/reloj.jpg" alt="Reloj inteligente">
+            <p>Reloj inteligente</p>
+            <p>$100</p>
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product" data-name="Asador color negro" data-price="250">
+            <img src="img/asador.jpg" alt="Asador color negro">
+            <p>Asador color negro</p>
+            <p>$250</p>
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product" data-name="Pantalón corto deportivo" data-price="30">
+            <img src="img/short.jpg" alt="Pantalón corto deportivo">
+            <p>Pantalón corto deportivo</p>
+            <p>$30</p>
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+        <div class="product" data-name="Reloj deportivo" data-price="110">
+            <img src="img/descarga.jpg" alt="Reloj deportivo">
+            <p>Reloj deportivo</p>
+            <p>$110</p>
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+    </div>
+
+    
+    <div id="datatable-view" style="display: none;">
+        <table id="myTable" class="display">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Luces blancas</td>
+                    <td>$25</td>
+                </tr>
+                <tr>
+                    <td>Tenis rosas</td>
+                    <td>$15</td>
+                </tr>
+                <tr>
+                    <td>Sudadera deportiva</td>
+                    <td>$50</td>
+                </tr>
+                <tr>
+                    <td>Pantalones de vestir</td>
+                    <td>$30</td>
+                </tr>
+                <tr>
+                    <td>Reloj inteligente</td>
+                    <td>$100</td>
+                </tr>
+                <tr>
+                    <td>Asador color negro</td>
+                    <td>$250</td>
+                </tr>
+                <tr>
+                    <td>Pantalón corto deportivo</td>
+                    <td>$30</td>
+                </tr>
+                <tr>
+                    <td>Reloj deportivo</td>
+                    <td>$110</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Vista del carrito -->
+    <div id="cart-view" style="display: none;">
+        <h2>Carrito de Compras</h2>
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+            </tbody>
+        </table>
+        
+        <div>
+            <label for="input-descuento">Ingresar % de descuento:</label>
+            <input type="text" id="input-descuento" placeholder="Ingresa código">
+        </div>
+        <div>
+            <label for="input-envio">Costo de Envío:</label>
+            <input type="number" id="input-envio" placeholder="Costo del envío">
+        </div>
+
+        <button id="checkout-button">Proceder a la compra</button>
+        <button id="clear-cart-button">Vaciar carrito</button>
+    </div>
+
+    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="//cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

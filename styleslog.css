@@ -1,0 +1,95 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #00aaff, #004080);
+  animation: backgroundAnimation 10s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background: linear-gradient(135deg, #00aaff, #004080);
+  }
+  100% {
+    background: linear-gradient(135deg, #ff8c00, #ff3e00);
+  }
+}
+
+.login-container {
+  width: 350px;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.login-container:hover {
+  transform: translateY(-10px);
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.8em;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #00aaff;
+  box-shadow: 0 4px 8px rgba(0, 160, 255, 0.2);
+  outline: none;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.9em;
+  display: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #00aaff, #004080);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.login-button:hover {
+  background: linear-gradient(90deg, #004080, #00aaff);
+  transform: translateY(-2px);
+}
+
+.login-button:disabled {
+  background: linear-gradient(90deg, #cce7ff, #88b0d9);
+  cursor: not-allowed;
+  transform: none;
+}
